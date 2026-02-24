@@ -5,20 +5,22 @@ export function About() {
     <section id="nosotros" className="py-24 md:py-32 bg-muted border-t border-border">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-          <div className="lg:col-span-5 space-y-10">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight sticky top-32">
-              Código propio, <br />
-              <span className="text-white/40">resultados concretos.</span>
-            </h2>
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-28 space-y-10">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+                Código propio, <br />
+                <span className="text-white/40">resultados concretos.</span>
+              </h2>
 
-            {/* Video placeholder */}
-            <div className="aspect-video relative bg-[#050505] border border-border rounded-xl overflow-hidden group cursor-pointer">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all">
-                  <Play size={28} className="text-primary ml-1" />
+              {/* Video placeholder */}
+              <div className="aspect-video relative bg-[#050505] border border-border rounded-xl overflow-hidden group cursor-pointer">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all">
+                    <Play size={28} className="text-primary ml-1" />
+                  </div>
+                  <span className="text-sm text-white/30 font-medium">Conocé ÍTERA</span>
                 </div>
-                <span className="text-sm text-white/30 font-medium">Conocé ÍTERA</span>
               </div>
             </div>
           </div>
