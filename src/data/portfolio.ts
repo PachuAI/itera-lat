@@ -1,92 +1,53 @@
-export type PortfolioType = "website" | "platform";
+// --- TIPOS DISCRIMINADOS ---
 
-export interface PortfolioItem {
-  id: string; // Used as slug
-  type: PortfolioType;
+export interface WebItem {
+  id: string;
+  type: "website";
   name: string;
-  niche?: string;
+  niche: string;
   location?: string;
   description: string;
   url?: string;
-  screenshot: string; // For websites
-  screenshotMobile?: string;
+  screenshot: string;
+  screenshotMobile: string;
   tags: string[];
-  metrics?: string[];
-  client?: string;
-  status?: string;
   featured?: boolean;
 }
 
-export const portfolioData: PortfolioItem[] = [
-  // --- PLATAFORMAS ---
-  {
-    id: "alquimica-hub",
-    type: "platform",
-    name: "Alquímica Hub",
-    description: "Linktree B2B con panel admin, lista de precios escalonada, analytics propio y capacidad white-label.",
-    screenshot: "", // Placeholder
-    tags: ["Next.js", "React", "PostgreSQL", "Prisma"],
-    metrics: ["+500 visitas/mes", "Panel autoadministrable"],
-    status: "En producción",
-    client: "Química Alquímica S.R.L."
-  },
-  {
-    id: "alquimica-studio",
-    type: "platform",
-    name: "Alquímica Studio",
-    description: "Generador de fotoproductos con Gemini AI. Tres modos de generación, galería avanzada y almacenamiento cloud.",
-    screenshot: "", // Placeholder
-    tags: ["Next.js", "Gemini AI", "Cloudflare R2"],
-    metrics: ["IA integrada", "3 modos de generación"],
-    status: "En producción",
-    client: "Química Alquímica S.R.L."
-  },
-  {
-    id: "bambu-crm",
-    type: "platform",
-    name: "Bambú CRM",
-    description: "CRM a medida para fábrica de artículos de limpieza. Gestión de clientes, pedidos, seguimiento y reportes.",
-    screenshot: "", // Placeholder
-    tags: ["Laravel", "Inertia.js", "React", "PostgreSQL"],
-    metrics: ["+2,500 clientes", "En producción"],
-    status: "En producción",
-    client: "Química Bambú"
-  },
-  {
-    id: "abundancia-hogar",
-    type: "platform",
-    name: "Abundancia Hogar",
-    description: "Catálogo online autoadministrable con checkout a WhatsApp. Panel admin completo con productos, categorías, galería y leads.",
-    screenshot: "", // Placeholder
-    tags: ["Next.js", "PostgreSQL", "Prisma"],
-    metrics: ["Producto escalable", "Multi-nicho"],
-    status: "Pre-lanzamiento",
-    client: "Validación con cliente real"
-  },
-  {
-    id: "presskit-ar",
-    type: "platform",
-    name: "Presskit.AR",
-    description: "SaaS freemium multi-tenant para que músicos y DJs argentinos armen su press kit digital profesional.",
-    screenshot: "", // Placeholder
-    tags: ["Next.js", "Multi-tenant", "SaaS"],
-    metrics: ["Freemium", "Multi-tenant"],
-    status: "Pre-lanzamiento",
-    client: "Producto propio"
-  },
-  {
-    id: "iteratube",
-    type: "platform",
-    name: "IteraTube",
-    description: "Suite de repurposing: analiza videos de YouTube y genera hilos, posts y contenido para redes sociales con IA.",
-    screenshot: "", // Placeholder
-    tags: ["Next.js", "Gemini Vision", "AI"],
-    metrics: ["966 tests", "Multi-formato"],
-    status: "Producción",
-    client: "Producto propio"
-  },
+export interface PlatformItem {
+  id: string;
+  type: "platform";
+  productName: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  tags: string[];
+  status: string;
+  screenshot: string;
+  screenshots?: string[];
+  adopters: { name: string; url?: string }[];
+  caseStudySlug?: string;
+}
 
-  // --- SITIOS WEB ---
+export interface ToolItem {
+  id: string;
+  type: "tool";
+  name: string;
+  description: string;
+  screenshot: string;
+  tags: string[];
+  license: string;
+  audience: string;
+  highlights: string[];
+  status: string;
+  externalUrl: string;
+}
+
+export type PortfolioItem = WebItem | PlatformItem | ToolItem;
+
+// --- DATOS ---
+
+export const websites: WebItem[] = [
   {
     id: "cerro-solar",
     type: "website",
@@ -151,5 +112,170 @@ export const portfolioData: PortfolioItem[] = [
     screenshotMobile: "/images/portfolio/screenshot-filo-barberia.jpg",
     tags: ["barbería", "turnos", "institucional"],
     featured: false,
-  }
+  },
+];
+
+export const platforms: PlatformItem[] = [
+  {
+    id: "hublink",
+    type: "platform",
+    productName: "HubLink",
+    tagline: "Hub de enlaces B2B con panel admin y analytics",
+    description: "Linktree B2B con panel admin, lista de precios escalonada, analytics propio y capacidad white-label. Diseñado para empresas que necesitan centralizar su presencia digital con métricas reales.",
+    features: [
+      "Panel de administración completo",
+      "Lista de precios escalonada",
+      "Analytics propio integrado",
+      "Capacidad white-label",
+      "Gestión multi-enlace",
+    ],
+    tags: ["Next.js", "React", "PostgreSQL", "Prisma"],
+    status: "En producción",
+    screenshot: "",
+    adopters: [{ name: "Química Alquímica S.R.L." }],
+  },
+  {
+    id: "studioai",
+    type: "platform",
+    productName: "StudioAI",
+    tagline: "Generador de fotoproductos con inteligencia artificial",
+    description: "Generador de fotoproductos con Gemini AI. Tres modos de generación, galería avanzada y almacenamiento cloud. Transforma fotos de productos comunes en imágenes profesionales de catálogo.",
+    features: [
+      "3 modos de generación con IA",
+      "Galería avanzada de resultados",
+      "Almacenamiento cloud (Cloudflare R2)",
+      "Procesamiento batch",
+      "Export en múltiples formatos",
+    ],
+    tags: ["Next.js", "Gemini AI", "Cloudflare R2"],
+    status: "En producción",
+    screenshot: "",
+    adopters: [{ name: "Química Alquímica S.R.L." }],
+  },
+  {
+    id: "flowcrm",
+    type: "platform",
+    productName: "FlowCRM",
+    tagline: "CRM a medida para industrias y fábricas",
+    description: "CRM a medida para fábrica de artículos de limpieza. Gestión de clientes, pedidos, seguimiento y reportes. Pensado para operaciones industriales con flujos de venta complejos.",
+    features: [
+      "Gestión completa de clientes",
+      "Sistema de pedidos con seguimiento",
+      "Reportes y métricas de venta",
+      "Pipeline visual de ventas",
+      "Historial de interacciones",
+    ],
+    tags: ["Laravel", "Inertia.js", "React", "PostgreSQL"],
+    status: "En producción",
+    screenshot: "",
+    adopters: [{ name: "Química Bambú" }],
+  },
+  {
+    id: "vitrina",
+    type: "platform",
+    productName: "Vitrina",
+    tagline: "Catálogo online autoadministrable con checkout a WhatsApp",
+    description: "Catálogo online autoadministrable con checkout a WhatsApp. Panel admin completo con productos, categorías, galería y leads. Producto escalable multi-nicho para cualquier negocio que venda productos.",
+    features: [
+      "Catálogo autoadministrable",
+      "Checkout directo a WhatsApp",
+      "Panel admin con productos y categorías",
+      "Galería de imágenes optimizada",
+      "Captura de leads automática",
+    ],
+    tags: ["Next.js", "PostgreSQL", "Prisma"],
+    status: "Pre-lanzamiento",
+    screenshot: "",
+    adopters: [{ name: "Abundancia Hogar" }],
+  },
+  {
+    id: "presskit-ar",
+    type: "platform",
+    productName: "PressKit.AR",
+    tagline: "Press kit digital para músicos y DJs argentinos",
+    description: "SaaS freemium multi-tenant para que músicos y DJs argentinos armen su press kit digital profesional. Cada artista tiene su propio subdominio con bio, tracks, fotos y rider técnico.",
+    features: [
+      "Multi-tenant con subdominios",
+      "Modelo freemium",
+      "Bio, tracks y fotos integrados",
+      "Rider técnico descargable",
+      "Estadísticas de visitas",
+    ],
+    tags: ["Next.js", "Multi-tenant", "SaaS"],
+    status: "Pre-lanzamiento",
+    screenshot: "",
+    adopters: [],
+  },
+  {
+    id: "iteratube",
+    type: "platform",
+    productName: "IteraTube",
+    tagline: "Suite de repurposing de contenido con IA",
+    description: "Suite de repurposing: analiza videos de YouTube y genera hilos, posts y contenido para redes sociales con IA. Convierte un solo video en múltiples piezas de contenido optimizadas para cada plataforma.",
+    features: [
+      "Análisis de video con IA",
+      "Generación multi-formato",
+      "Hilos para Twitter/X",
+      "Posts para LinkedIn e Instagram",
+      "966 tests automatizados",
+    ],
+    tags: ["Next.js", "Gemini Vision", "AI"],
+    status: "En producción",
+    screenshot: "",
+    adopters: [],
+  },
+  {
+    id: "raiz",
+    type: "platform",
+    productName: "RAIZ",
+    tagline: "Sistema de gestión para estudios jurídicos",
+    description: "Sistema integral de gestión para estudios jurídicos. Administración de expedientes, clientes, agenda judicial, vencimientos y documentación. En uso activo por múltiples estudios.",
+    features: [
+      "Gestión de expedientes judiciales",
+      "Agenda judicial con vencimientos",
+      "Administración de clientes",
+      "Repositorio de documentación",
+      "Sistema de alertas y recordatorios",
+    ],
+    tags: ["CodeIgniter", "MySQL", "jQuery"],
+    status: "En producción",
+    screenshot: "",
+    adopters: [{ name: "Estudios jurídicos del Alto Valle" }],
+  },
+];
+
+export const tools: ToolItem[] = [
+  {
+    id: "itera-studio",
+    type: "tool",
+    name: "Itera Studio",
+    description: "Entorno visual para diseñar, prototipar y generar componentes UI production-ready con IA. Exporta directamente a código React + Tailwind listo para integrar en cualquier proyecto.",
+    screenshot: "",
+    tags: ["Next.js", "React", "Tailwind CSS", "AI"],
+    license: "Single-tenant",
+    audience: "Desarrolladores y equipos que necesitan acelerar la creación de interfaces sin sacrificar calidad de código.",
+    highlights: ["Generación con IA", "Export a React + Tailwind", "Componentes reutilizables", "Preview en tiempo real"],
+    status: "Beta privada",
+    externalUrl: "https://studio.itera.lat",
+  },
+  {
+    id: "iteratools",
+    type: "tool",
+    name: "IteraTools",
+    description: "Colección de micro-herramientas web para desarrolladores y diseñadores. Conversores, generadores, validadores y utilidades que usamos internamente y abrimos al público.",
+    screenshot: "",
+    tags: ["Next.js", "Open Source", "Utilidades"],
+    license: "Open Source",
+    audience: "Desarrolladores, diseñadores y cualquiera que necesite herramientas rápidas sin instalar nada.",
+    highlights: ["Sin registro", "Código abierto", "Zero tracking", "Procesamiento local"],
+    status: "En producción",
+    externalUrl: "https://tools.itera.lat",
+  },
+];
+
+// Helper para obtener todo junto (backward compat)
+export const portfolioData: PortfolioItem[] = [
+  ...platforms,
+  ...tools,
+  ...websites,
 ];

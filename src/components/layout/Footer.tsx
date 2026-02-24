@@ -18,8 +18,8 @@ export function Footer() {
             <p className="text-white/60 max-w-sm text-lg leading-relaxed mb-8">
               Soluciones digitales que evolucionan con vos. Activos tecnológicos que generan resultados medibles.
             </p>
-            <a 
-              href="mailto:hola@itera.lat" 
+            <a
+              href="mailto:hola@itera.lat"
               className="text-white hover:text-primary transition-colors text-lg font-medium inline-flex items-center gap-2"
             >
               hola@itera.lat
@@ -30,21 +30,17 @@ export function Footer() {
             <h4 className="font-semibold text-lg mb-6">Ecosistema</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="#" className="text-white/60 hover:text-white transition-colors">itera.lat</Link>
+                <Link href="/webs" className="text-white/60 hover:text-white transition-colors">Webs</Link>
               </li>
               <li>
-                <a href="https://itera.tools" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors flex items-center gap-1 group">
+                <Link href="/plataformas" className="text-white/60 hover:text-white transition-colors">Plataformas</Link>
+              </li>
+              <li>
+                <Link href="/herramientas" className="text-white/60 hover:text-white transition-colors">Herramientas</Link>
+              </li>
+              <li>
+                <a href="https://tools.itera.lat" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors flex items-center gap-1 group">
                   itera.tools <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <a href="https://iterastudio.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors flex items-center gap-1 group">
-                  Ítera Studio <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <a href="https://presskit.ar" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors flex items-center gap-1 group">
-                  PressKit.ar <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
             </ul>
@@ -54,25 +50,22 @@ export function Footer() {
             <h4 className="font-semibold text-lg mb-6">Agencia</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="#servicios" className="text-white/60 hover:text-white transition-colors">Servicios</Link>
+                <Link href="/#servicios" className="text-white/60 hover:text-white transition-colors">Servicios</Link>
               </li>
               <li>
-                <Link href="#portfolio" className="text-white/60 hover:text-white transition-colors">Portfolio</Link>
+                <Link href="/#nosotros" className="text-white/60 hover:text-white transition-colors">Sobre Nosotros</Link>
               </li>
               <li>
-                <Link href="#nosotros" className="text-white/60 hover:text-white transition-colors">Sobre Nosotros</Link>
-              </li>
-              <li>
-                <Link href="#contacto" className="text-white/60 hover:text-white transition-colors">Contacto</Link>
+                <Link href="/#contacto" className="text-white/60 hover:text-white transition-colors">Contacto</Link>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between text-white/40 text-sm">
-          <p>© {currentYear} ÍTERA Estudio Digital. Todos los derechos reservados.</p>
+          <p>&copy; {currentYear} ÍTERA Estudio Digital. Todos los derechos reservados.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Alto Valle, Argentina</Link>
+            <span>Alto Valle, Argentina</span>
           </div>
         </div>
       </div>

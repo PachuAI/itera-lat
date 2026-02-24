@@ -33,7 +33,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-2xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            No somos una agencia de marketing tradicional. Construimos activos tecnológicos de alta performance que generan resultados medibles para tu negocio.
+            Construimos activos tecnológicos de alta performance que generan resultados medibles para tu negocio.
           </motion.p>
 
           <motion.div
@@ -46,7 +46,7 @@ export function Hero() {
               href="#portfolio"
               className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-semibold rounded-sm hover:bg-primary-soft transition-colors flex items-center justify-center gap-2 group"
             >
-              Ver Proyectos 
+              Ver proyectos
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
