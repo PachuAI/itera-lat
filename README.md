@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ÍTERA — Sitio Web de Marketing
 
-## Getting Started
+Sitio web institucional y portfolio de **ÍTERA Estudio Digital** ([itera.lat](https://itera.lat)), agencia de desarrollo de software del Alto Valle, Argentina.
 
-First, run the development server:
+## Qué es
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Landing page + portfolio showcase de la agencia. Muestra los servicios, proyectos y productos desarrollados por ÍTERA, organizados en tres verticales:
+
+- **Webs** (`/webs`) — Sitios web para clientes (Cerro Solar, Cota Estudio, Surco Café, Brasa Burgers, Filo Barbería)
+- **Plataformas** (`/plataformas`) — Productos SaaS propios (HubLink, StudioAI, FlowCRM, Vitrina, PressKit.AR, IteraTube, RAIZ)
+- **Herramientas** (`/herramientas`) — Tools internas abiertas al público (Itera Studio, IteraTools)
+
+## Features principales
+
+- **ScreenshotViewer** — Visor modal con frame de browser (desktop) y celular (mobile) para previsualizar sitios del portfolio. Toggle desktop/mobile con mockup realista.
+- **InteractiveBackground** — Fondo animado interactivo en el Hero.
+- **Animaciones con Framer Motion** — Transiciones y micro-interacciones en todas las secciones.
+- **Demos en vivo** — Los sitios web del portfolio apuntan a `demo.itera.lat/{proyecto}` (HTML estáticos).
+- **Dark theme** — Paleta oscura con acentos naranja (#FF3C00) y violeta (#A960EE).
+
+## Stack
+
+| Tecnología | Versión |
+|---|---|
+| Next.js | 16.1 |
+| React | 19.2 |
+| TypeScript | 5.x |
+| Tailwind CSS | 4.x |
+| Framer Motion | 12.x |
+| Lucide React | (iconos) |
+| Font | Poppins (Google Fonts) |
+
+## Estructura
+
+```
+src/
+├── app/
+│   ├── page.tsx                    # Homepage (Hero → Services → Portfolio → About → Contact)
+│   ├── layout.tsx                  # Layout global (Header + Footer + ScrollToTop)
+│   ├── globals.css                 # Theme tokens (CSS custom properties)
+│   ├── webs/page.tsx               # Catálogo de sitios web
+│   ├── plataformas/page.tsx        # Grid de plataformas SaaS
+│   ├── plataformas/[slug]/page.tsx # Detalle de plataforma
+│   ├── herramientas/page.tsx       # Lista de herramientas
+│   └── portfolio/[slug]/page.tsx   # Detalle de proyecto
+├── components/
+│   ├── sections/                   # Secciones del homepage (Hero, Services, Portfolio, About, Contact)
+│   ├── layout/                     # Header, Footer, ScrollToTop
+│   ├── webs/                       # ScreenshotViewer, WebCard, WebCatalog
+│   ├── plataformas/                # PlatformCard, PlatformGrid
+│   ├── herramientas/               # ToolPreviewCard, ToolsList
+│   └── ui/                         # Button, InteractiveBackground
+├── data/
+│   └── portfolio.ts                # Datos de todos los proyectos (websites, platforms, tools)
+└── lib/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev    # http://localhost:3005
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Proyectos referenciados en el portfolio
 
-## Learn More
+### Sitios web (demos HTML)
+- **Cerro Solar** — Domos ecológicos, Patagonia (turismo/reservas)
+- **Cota Estudio** — Portfolio de arquitectura, Córdoba
+- **Surco Café** — Cafetería de especialidad, Neuquén (e-commerce)
+- **Brasa Burgers** — Delivery de hamburguesas, Buenos Aires
+- **Filo Barbería** — Reservas de turnos online, Rosario
 
-To learn more about Next.js, take a look at the following resources:
+### Plataformas SaaS
+- **HubLink** — Hub de enlaces B2B (adoptado por Alquímica)
+- **StudioAI** — Generador de fotoproductos con Gemini AI
+- **FlowCRM** — CRM industrial (adoptado por Química Bambú)
+- **Vitrina** — Catálogo online con checkout a WhatsApp (adoptado por Abundancia Hogar)
+- **PressKit.AR** — Press kit digital para músicos argentinos
+- **IteraTube** — Suite de repurposing de contenido con IA
+- **RAIZ** — Gestión para estudios jurídicos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Herramientas
+- **Itera Studio** ([studio.itera.lat](https://studio.itera.lat)) — Generador de componentes UI con IA
+- **IteraTools** ([tools.itera.lat](https://tools.itera.lat)) — Micro-herramientas web open source
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dominio
 
-## Deploy on Vercel
+- Producción: `itera.lat`
+- Demos: `demo.itera.lat/{proyecto}`
+- Contacto: `hola@itera.lat`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Estado
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Work in progress. Última actividad: reestructuración con páginas dedicadas por vertical y componente ScreenshotViewer.
